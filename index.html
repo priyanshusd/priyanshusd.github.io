@@ -7,113 +7,152 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0f172a;
-      --secondary: #1e293b;
-      --accent: #38bdf8;
-      --text: #f8fafc;
-      --link: #0ea5e9;
+      --bg: #1f2937;
+      --text: #f9fafb;
+      --highlight: #facc15;
+      --button: #8b5cf6;
+      --icon: #d1d5db;
+      --email-highlight: #38bdf8;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
-    body {
+    html, body {
       font-family: 'Inter', sans-serif;
-      background: var(--primary);
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
-    header, section {
-      padding: 2rem;
-      max-width: 720px;
-      margin: auto;
+    .home {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4rem;
+      height: 100vh;
+      position: relative;
     }
 
-    h1, h2, h3 {
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .section {
-      margin-top: 2.5rem;
-    }
-
-    .card {
-      background-color: var(--secondary);
-      padding: 1.25rem;
-      margin-bottom: 1.5rem;
-      border-radius: 0.75rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .center {
+    .intro {
+      flex: 1;
       text-align: center;
     }
 
-    .profile-pic {
-      width: 100px;
-      height: 100px;
-      border-radius: 9999px;
-      object-fit: cover;
-      border: 2px solid var(--accent);
+    .intro h1 {
+      font-size: 2rem;
       margin-bottom: 1rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      color: white;
+    }
+
+    .intro h1 span {
+      color: var(--highlight);
+    }
+
+    .icons {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .icons a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+
+    .icons img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      animation: bounce 1.5s infinite;
+      color: var(--icon);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    .profile-img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--highlight);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: #374151;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2, h3 {
+      color: var(--button);
+      margin-bottom: 1rem;
     }
 
     ul {
-      list-style: none;
-      padding-left: 1rem;
+      padding-left: 1.25rem;
     }
 
-    ul li::before {
-      content: '•';
-      color: var(--accent);
-      display: inline-block;
-      width: 1rem;
-    }
-
-    p, ul li {
+    ul li {
       margin-bottom: 0.75rem;
+    }
+
+    a.email {
+      color: var(--email-highlight);
     }
   </style>
 </head>
 <body>
-  <header class="center">
-    <img src="image/profile_pic.jpeg" alt="Profile Picture" class="profile-pic" width="20%">
-    <h1>Priyanshu Damodhare</h1>
-    <p>DevOps & Platform Engineer</p>
-    <p>
-      <a href="mailto:priyanshu.s.damodhare@gmail.com">Email</a> ·
-      <a href="https://github.com/priyanshusd" target="_blank">GitHub</a> ·
-      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> ·
-      <a href="/resume.pdf" target="_blank">Resume</a>
-    </p>
-  </header>
-
-  <section class="section">
-    <h2>About Me</h2>
-    <p>
-      I’m a DevOps & Platform Engineer passionate about automating infrastructure, building cloud-native platforms, and simplifying complex deployments. I’ve helped teams migrate legacy workloads to scalable Kubernetes setups, implement GitOps pipelines, and slash cloud costs.
-    </p>
+  <section class="home" id="home">
+    <div class="intro">
+      <h1>Hi there,<br /><span><span style="color: white;">I'm</span> <span style="color: var(--highlight);">Priyanshu Damodhare</span></span></h1>
+      <div class="icons">
+        <a href="https://github.com/priyanshusd" target="_blank"><img src="image/github.svg" alt="GitHub"></a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank"><img src="image/linkedin.svg" alt="LinkedIn"></a>
+        <a href="https://medium.com/@yourprofile" target="_blank"><img src="image/medium.svg" alt="Medium"></a>
+        <a href="mailto:priyanshu.s.damodhare@gmail.com"><img src="image/email.svg" alt="Email"></a>
+        <a href="/resume.pdf" target="_blank"><img src="image/resume.svg" alt="Resume"></a>
+      </div>
+    </div>
+    <img src="image/profile_pic.jpeg" alt="Profile Picture" class="profile-img" />
+    <a href="#about"><div class="scroll-down">⬇</div></a>
   </section>
 
-  <section class="section">
-    <h2>Work Experience</h2>
+  <section id="about">
+    <h2 style="text-align: center; color: white;">Introduction</h2>
     <div class="card">
-      <h3>DevToppers – <em>DevOps Engineer</em></h3>
+      <p style="text-align: center;">I’m a DevOps & Platform Engineer passionate about automating infrastructure, building cloud-native platforms, and simplifying complex deployments. I’ve helped teams migrate legacy workloads to scalable Kubernetes setups, implement GitOps pipelines, and slash cloud costs.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="text-align: center; color: white;">Work Experience</h2>
+    <div class="card">
+      <h3><span style="color: var(--highlight);">DevToppers – DevOps Engineer</span></h3>
       <ul>
         <li>Automated AWS infrastructure using Crossplane + ArgoCD, reducing deploy time by 60%</li>
         <li>Setup Prometheus, Grafana, and Thanos for observability</li>
@@ -122,7 +161,7 @@
       </ul>
     </div>
     <div class="card">
-      <h3>Xenium Cloud Technologies – <em>Platform Engineer</em></h3>
+      <h3><span style="color: var(--highlight);">Xenium Cloud Technologies – Platform Engineer</span></h3>
       <ul>
         <li>Built XePlatform, a self-service PaaS for infra + app deployments</li>
         <li>Architected production infra using OSS tools (ArgoCD, Terraform)</li>
@@ -132,46 +171,53 @@
     </div>
   </section>
 
-  <section class="section">
-    <h2>Projects</h2>
+  <section>
+    <h2 style="text-align: center; color: white;">Projects</h2>
     <div class="card">
-      <strong>Natural Language Transcription Tool</strong>
+      <strong><span style="color: var(--highlight);">Natural Language Transcription Tool</span></strong>
       <p>Audio to text tool using Python and NLP libraries.</p>
     </div>
     <div class="card">
-      <strong>ArgoCD Multi-Cluster Automation</strong>
+      <strong><span style="color: var(--highlight);">ArgoCD Multi-Cluster Automation</span></strong>
       <p>Python script for multi-env ArgoCD app creation with dynamic secrets.</p>
     </div>
     <div class="card">
-      <strong>Fake News Detection Tool</strong>
+      <strong><span style="color: var(--highlight);">Fake News Detection Tool</span></strong>
       <p>Supervised learning model for misinformation classification using NLP.</p>
     </div>
   </section>
 
-  <section class="section">
-    <h2>Certifications</h2>
-    <ul>
-      <li>AWS Solutions Architect Associate (2023)</li>
-      <li>Docker Certified Associate (2022)</li>
-      <li>AI Workshop – IIT Bombay</li>
-      <li>100-Hour German Language Course</li>
-    </ul>
+  <section>
+    <h2 style="text-align: center; color: white;">Certifications</h2>
+    <div class="card">
+      
+      <ul style="text-align: center; list-style-position: inside;">
+        <li>AWS Solutions Architect Associate (2023)</li>
+        <li>Docker Certified Associate (2022)</li>
+        <li>AI Workshop – IIT Bombay</li>
+        <li>100-Hour German Language Course</li>
+      </ul>
+    </div>
   </section>
 
-  <section class="section">
-    <h2>Achievements</h2>
-    <ul>
-      <li>1st Place – CodeLinks Coding Competition</li>
-      <li>ICPC Contestant</li>
-      <li>Hackathons: Project Code 2.0, Crack-a-Code, Campus Chapters 1.0</li>
-      <li>DevOps Seminar Speaker at YCCE</li>
-    </ul>
+  <section>
+    <h2 style="text-align: center; color: white;">Achievements</h2>
+    <div class="card">
+      
+      <ul style="text-align: center; list-style-position: inside;">
+        <li>1st Place – CodeLinks Coding Competition</li>
+        <li>ICPC Contestant</li>
+        <li>Hackathons: Project Code 2.0, Crack-a-Code, Campus Chapters 1.0</li>
+        <li>DevOps Seminar Speaker at YCCE</li>
+      </ul>
+    </div>
   </section>
 
-  <section class="section">
-    <h2>Contact</h2>
+
+  <section>
+    <h2 style="text-align: center; color: white;">Contact</h2>
     <p>📍 Nagpur, India<br />
-    📧 <a href="mailto:priyanshu.s.damodhare@gmail.com">priyanshu.s.damodhare@gmail.com</a><br />
+    📧 <a href="mailto:priyanshu.s.damodhare@gmail.com" class="email">priyanshu.s.damodhare@gmail.com</a><br />
     ☎️ 9096680429</p>
   </section>
 </body>
